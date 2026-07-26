@@ -1,449 +1,213 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venda Mais - Do Iniciante ao Profissional</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindset | Links</title>
+<meta name="description" content="Vendas de ticket alto: guia e reunião comigo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --surface:#171512;
+    --border:#2a2622;
+    --text:#f2efe9;
+    --text-muted:#9a958c;
+    --gold:#b08d57;
+    --gold-bright:#d4b483;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:64px 20px 40px;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* fundo com leve textura radial pra não ficar chapado */
+  body{
+    background-image:radial-gradient(circle at 50% 0%, #161310 0%, #0a0a0a 55%);
+  }
+  .page{width:100%;max-width:440px;text-align:center;}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #111111;
-            background: #FFFFFF;
-        }
+  .avatar{
+    width:84px;height:84px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:900;
+    font-size:34px;
+    color:var(--gold);
+    background:var(--surface);
+  }
+  .brand{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:26px;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+  }
+  .brand span{color:var(--gold);}
+  .tagline{
+    margin-top:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--text-muted);
+    letter-spacing:0.04em;
+  }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%);
-            color: #FFFFFF;
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  .links{margin-top:38px;display:flex;flex-direction:column;gap:16px;}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-        }
+  .link-btn{
+    display:block;
+    text-decoration:none;
+    color:var(--text);
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 22px;
+    text-align:left;
+    transition:transform .15s ease, border-color .2s ease, background .2s ease;
+    position:relative;
+  }
+  .link-btn:hover{
+    transform:translateY(-2px);
+    border-color:var(--gold);
+  }
+  .link-btn.featured{
+    background:var(--gold);
+    border-color:var(--gold);
+  }
+  .link-btn.featured:hover{background:var(--gold-bright);}
+  .link-btn.featured .link-title,
+  .link-btn.featured .link-sub{color:#141210;}
 
-        .hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  .link-eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:block;
+    margin-bottom:6px;
+  }
+  .link-btn.featured .link-eyebrow{color:#3d3126;}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            line-height: 1.2;
-            color: #FFFFFF;
-            width: 100%;
-        }
+  .link-title{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:21px;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:1.1;
+  }
+  .link-sub{
+    margin-top:6px;
+    font-size:13.5px;
+    color:var(--text-muted);
+  }
+  .link-price{
+    position:absolute;
+    top:20px;right:22px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    font-weight:700;
+    color:var(--gold);
+  }
+  .link-btn.featured .link-price{color:#141210;}
+  .arrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--gold);
+    margin-top:10px;
+    display:inline-block;
+  }
+  .link-btn.featured .arrow{color:#141210;}
 
-        .hero .gold-text {
-            color: #D4AF37;
-        }
+  .divider{
+    margin:34px 0 22px;
+    display:flex;align-items:center;gap:14px;
+    color:var(--text-muted);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .divider::before,.divider::after{
+    content:'';flex:1;height:1px;background:var(--border);
+  }
 
-        .hero .subtitle {
-            font-size: 1.4rem;
-            color: #BFBFBF;
-            margin-bottom: 50px;
-            line-height: 1.6;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+  .social{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--text-muted);
+    font-family:'JetBrains Mono',monospace;
+    font-size:13.5px;
+    border:1px solid var(--border);
+    padding:11px 20px;
+    border-radius:100px;
+    transition:all .2s ease;
+  }
+  .social:hover{border-color:var(--gold);color:var(--gold-bright);}
 
-        .cta-button {
-            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
-            color: #0B0B0B;
-            padding: 20px 60px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
-        }
-
-        .price-box {
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid #D4AF37;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 40px;
-            display: inline-block;
-            width: auto;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #999999;
-            font-size: 1.2rem;
-        }
-
-        .new-price {
-            color: #FFD700;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-top: 10px;
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #111111;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #FFD700, #D4AF37);
-        }
-
-        /* LEARNING SECTION */
-        .learning-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .learning-item {
-            background: #FFFFFF;
-            border: 2px solid #F5F5F5;
-            padding: 30px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .learning-item:hover {
-            border-color: #D4AF37;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .learning-item::before {
-            content: '✓';
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, #FFD700, #D4AF37);
-            color: #0B0B0B;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: 900;
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-
-        .learning-item strong {
-            color: #111111;
-            font-size: 1.1rem;
-        }
-
-        /* BONUS SECTION */
-        .bonus-section {
-            background: linear-gradient(135deg, #EDE8D0 0%, #F5F5F5 100%);
-        }
-
-        .bonus-box {
-            background: #FFFFFF;
-            border: 3px solid #D4AF37;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 800px;
-            margin: 40px auto 0;
-            text-align: center;
-        }
-
-        .bonus-badge {
-            background: linear-gradient(135deg, #FFD700, #D4AF37);
-            color: #0B0B0B;
-            padding: 10px 30px;
-            border-radius: 25px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .bonus-box h3 {
-            font-size: 1.8rem;
-            color: #111111;
-            margin-bottom: 15px;
-        }
-
-        .bonus-box p {
-            color: #555555;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        /* FINAL CTA */
-        .final-cta {
-            background: linear-gradient(135deg, #0B0B0B 0%, #1a1a1a 100%);
-            color: #FFFFFF;
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-        }
-
-        .final-cta .gold-highlight {
-            color: #FFD700;
-        }
-
-        .final-cta p {
-            font-size: 1.2rem;
-            color: #BFBFBF;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0B0B0B;
-            color: #999999;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #333333;
-        }
-
-        footer a {
-            color: #D4AF37;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 20px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section {
-                padding: 60px 20px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .cta-button {
-                padding: 18px 40px;
-                font-size: 1.1rem;
-                width: 100%;
-                max-width: 350px;
-            }
-
-            .new-price {
-                font-size: 2rem;
-            }
-
-            .price-box {
-                padding: 25px;
-                margin-top: 30px;
-            }
-
-            .learning-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .themes-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .final-cta h2 {
-                font-size: 2rem;
-            }
-
-            .bonus-box {
-                padding: 30px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .cta-button {
-                padding: 16px 30px;
-                font-size: 1rem;
-            }
-
-            .learning-item {
-                padding: 20px;
-                font-size: 0.95rem;
-            }
-
-            .foryou-item {
-                padding: 20px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+  footer{
+    margin-top:48px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:#5c584f;
+  }
+</style>
 </head>
 <body>
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Descubra Como Vender Todos os Dias — <span class="gold-text">Sem Medo, Sem Complicação</span></h1>
-            <p class="subtitle">
-                Aprenda a dominar as técnicas de vendas e a mentalidade que geram resultados consistentes. Dê o primeiro passo para sua liberdade financeira e profissional.
-            </p>
-            <a href="https://hotm.io/XOmrpt" class="cta-button">Quero Vender Mais Agora</a>
-            
-            <div class="price-box">
-                <div class="old-price">De R$ 197</div>
-                <div class="new-price">Por apenas R$ 75,00</div>
-                <p style="color: #BFBFBF; margin-top: 10px;">Pagamento único • Acesso imediato</p>
-            </div>
-        </div>
-    </section>
+<div class="page">
 
-    <!-- O QUE VOCÊ VAI APRENDER -->
-    <section class="section">
-        <h2 class="section-title">O Que Você Vai Aprender</h2>
-        <div class="learning-grid">
-            <div class="learning-item">
-                <strong>Entender o seu público-alvo</strong> — Como identificar quem realmente compra de você e por quê.
-            </div>
-            <div class="learning-item">
-                <strong>Vendas ativas de forma natural</strong> — Como gerar oportunidades todos os dias, mesmo sem equipe.
-            </div>
-            <div class="learning-item">
-                <strong>Técnicas de persuasão que funcionam</strong> — Como conduzir conversas que geram "sim" sem pressão.
-            </div>
-            <div class="learning-item">
-                <strong>Primeira impressão e autoridade</strong> — Como transmitir confiança desde o primeiro contato.
-            </div>
-            <div class="learning-item">
-                <strong>Relacionamento e pós-venda</strong> — Como transformar clientes em promotores da sua marca.
-            </div>
-            <div class="learning-item">
-                <strong>Mentalidade de vendedor vencedor</strong> — Como se manter firme, mesmo depois dos "nãos".
-            </div>
-        </div>
-    </section>
+  <div class="avatar">M</div>
+  <div class="brand">MINDSET<span>.</span></div>
+  <div class="tagline">VENDAS ALTO TICKET</div>
 
-    <!-- BÔNUS EXCLUSIVO -->
-    <section class="section bonus-section">
-        <h2 class="section-title">Bônus Exclusivo</h2>
-        <div class="bonus-box">
-            <div class="bonus-badge">🎁 Bônus Especial</div>
-            <h3>Checklist Diário do Vendedor de Sucesso</h3>
-            <p>
-                Tenha um plano de ação diário com passos simples para manter o foco, a consistência e o entusiasmo — mesmo nos dias difíceis. Um guia prático para transformar sua rotina em resultados.
-            </p>
-        </div>
-    </section>
+  <div class="links">
 
-    <!-- FINAL CTA -->
-    <section class="final-cta" id="comprar">
-        <h2>Comece Agora Sua <span class="gold-highlight">Transformação em Vendas</span></h2>
-        <p>O valor de uma refeição — o retorno de uma vida inteira de resultados.</p>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 40px;">
-            <a href="https://hotm.io/XOmrpt" class="cta-button" style="margin-bottom: 0;">Quero Vender Mais Agora</a>
-            
-            <div class="price-box" style="margin-top: 0;">
-                <div class="old-price">De R$ 197</div>
-                <div class="new-price">Por apenas R$ 75,00</div>
-                <p style="color: #BFBFBF; margin-top: 10px;">Pagamento único • Acesso imediato</p>
-            </div>
-        </div>
-        
-        <p style="margin-top: 30px; font-size: 0.9rem;">Acesso imediato após o pagamento • 100% digital</p>
-    </section>
+    <a href="#" id="linkReuniao" class="link-btn featured">
+      <span class="link-eyebrow">Fale comigo</span>
+      <div class="link-title">Quero vender mais</div>
+      <div class="link-sub">Entenda onde seu time está perdendo venda</div>
+      <span class="arrow">Abrir →</span>
+    </a>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2025 Venda Mais. Todos os direitos reservados.</p>
-        <p style="margin-top: 10px;">
-            <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a>
-        </p>
-    </footer>
+    <a href="#" id="linkEbook" class="link-btn">
+      <span class="link-price">R$19,90</span>
+      <span class="link-eyebrow">Guia digital</span>
+      <div class="link-title">Feche mais reuniões de ticket alto</div>
+      <div class="link-sub">O método testado com +1000 fechamentos</div>
+      <span class="arrow">Ver guia →</span>
+    </a>
+
+  </div>
+
+  <div class="divider">redes</div>
+
+  <a href="https://instagram.com/imthemindset" target="_blank" rel="noopener" class="social">
+    Instagram · @imthemindset
+  </a>
+
+  <footer>© Mindset, Vendas Alto Ticket</footer>
+
+</div>
+
+<script>
+  // ATENÇÃO: troque pelos links reais antes de publicar
+  document.getElementById('linkReuniao').href = "COLE_AQUI_O_LINK_DA_LANDING_PAGE";
+  document.getElementById('linkEbook').href = "https://hotm.io/XOmrpt";
+</script>
+
 </body>
 </html>
